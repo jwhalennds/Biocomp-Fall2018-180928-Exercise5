@@ -1,5 +1,7 @@
-#script for exercise 5 
-#bash wages.sh
+
+#script to return unique gender-yearsExperience for wages.csv
+#usage bash wages.sh wages.csv
+cat $1 | cut -d , -f 1,2 | sort -u -t "," -k1,1 -k2n,2 | tr "," " " 
 
 
 
@@ -15,3 +17,4 @@ val2=$(cat wages.csv | cut -d "," -f 3,4 | grep "12," | cut -d "," -f 2 | sort -
 # he wants 16minimum-12minimum
 val3=$(echo "$val1 - $val2" | bc)
 echo "The difference in minimum wage between a high school and college education is $val3 dollars" 
+
