@@ -1,7 +1,7 @@
 
 #script to return unique gender-yearsExperience for wages.csv
 #usage bash wages.sh wages.csv
-cat $1 | cut -d , -f 1,2 | sort -u -t "," -k1,1 -k2n,2 | tr "," " " > uniquewages.csv
+cat $1 | sed '1d' | cut -d , -f 1,2 | sort -u -t "," -k1,1 -k2n,2 | tr "," " " > uniquewages.csv
 
 
 
